@@ -1,0 +1,19 @@
+[Unit]
+Description=Broadleaf Commerce Server
+Documentation=https://www.broadleafcommerce.com/
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+Restart=on-failure
+TimeoutStartSec=3m
+TimeoutStopSec=30s
+RestartSec=10s
+WorkingDirectory=/opt/DemoSite/site
+ExecStart=/usr/bin/mvn spring-boot:run
+RemainAfterExit=yes
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=multi-user.target

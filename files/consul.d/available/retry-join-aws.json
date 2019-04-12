@@ -1,0 +1,5 @@
+{
+    "retry_join": [
+        "provider=aws tag_key=consul-role tag_value=consul-server"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "addresses": {
+        "http": "0.0.0.0"
+    },
+    "bind_addr": "{{GetInterfaceIP \"eth0\"}}",
+    "data_dir": "/data/consul",
+    "log_level": "debug",
+    "connect": {
+        "enabled": true
+    }
+}

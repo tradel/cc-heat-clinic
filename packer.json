@@ -1,0 +1,62 @@
+{
+    "builders": [
+        {
+            "type": "googlecompute",
+            "project_id": "heat-clinic-demo",
+            "source_image_family": "debian-9",
+            "image_name": "heat-clinic-{{timestamp}}",
+            "image_family": "heat-clinic",
+            "machine_type": "n1-standard-1",
+            "disk_size": 10,
+            "ssh_username": "packer",
+            "zone": "us-east1-d"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "file",
+            "source": "files/",
+            "destination": "/tmp"
+        },
+        {
+            "type": "shell",
+            "script": "build/pre.sh",
+            "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'"
+        },
+        {
+            "type": "shell",
+            "script": "build/consul.sh",
+            "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'"
+        },
+        {
+            "type": "shell",
+            "script": "build/consul_template.sh",
+            "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'"
+        },
+        {
+            "type": "shell",
+            "script": "build/vault.sh",
+            "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'"
+        },
+        {
+            "type": "shell",
+            "script": "build/mysql.sh",
+            "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'"
+        },
+        {
+            "type": "shell",
+            "script": "build/nginx.sh",
+            "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'"
+        },
+        {
+            "type": "shell",
+            "script": "build/broadleaf.sh",
+            "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'"
+        },
+        {
+            "type": "shell",
+            "script": "build/post.sh",
+            "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'"
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+# GCE litter
+heat-clinic-demo-*.json
+*-key.json
+gce_googlecompute.pem
+
+# Terraform state
+terraform.tfstate*
+.terraform/

@@ -1,0 +1,33 @@
+{
+    "service": {
+        "name": "web",
+        "tags": [
+            "web"
+        ],
+        "port": 443,
+        "check": {
+            "id": "site-http-check",
+            "name": "Check proxy site with http",
+            "http": "http://localhost/",
+            "method": "GET",
+            "interval": "10s",
+            "timeout": "1s"
+        },
+        "connect": {
+            "proxy": {
+                "config": {
+                    "upstreams": [
+                        {
+                            "destination_name": "app",
+                            "local_bind_port": 8443
+                        },
+                        {
+                            "destination_name": "admin",
+                            "local_bind_port": 8444
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
