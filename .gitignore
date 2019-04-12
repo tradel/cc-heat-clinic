@@ -6,3 +6,4 @@ gce_googlecompute.pem
 # Terraform state
 terraform.tfstate*
 .terraform/
+.terraform.*

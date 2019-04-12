@@ -3,7 +3,13 @@ resource "google_compute_instance" "nginx" {
   machine_type = "${var.machine_type}"
   zone         = "${var.zone}"
   count        = 1
-  depends_on  = ["google_compute_instance.consul", "google_compute_instance.admin", "google_compute_instance.site"]
+  depends_on  = [
+    "google_compute_instance.consul", 
+    "google_compute_instance.admin", 
+    "google_compute_instance.site",
+    "consul_intention.allow_web_app",
+    "consul_intention.allow_web_admin"
+    ]
 
   tags = ["consul-client", "nginx"]
 

@@ -3,6 +3,8 @@ Consul Connect Heat Clinic Demo v2
 
 This is a ground-up rewrite of the original [Heat Clinic] demo for [Consul Connect]. Where the original demo used [Vagrant] to spin up a set of virtual machines on your laptop, this version is designed to be run in the cloud. Currently it only supports GCP, but AWS and Azure will be added eventually. 
 
+If you are looking for a demo that runs in Kubernetes, try the [Sock Shop].
+
 The demo uses Packer and Terraform to create the infrastructure and launch the applications.
 
 ## Prerequisites
@@ -83,3 +85,4 @@ The demo uses Packer and Terraform to create the infrastructure and launch the a
 [heat clinic]: https://github.com/tradel/consul-connect-demo
 [consul connect]: https://www.consul.io/docs/connect/index.html
 [vagrant]: https://www.vagrantup.com/
+[sock shop]: https://github.com/tradel/cc-kube-sockshop

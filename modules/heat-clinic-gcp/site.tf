@@ -3,7 +3,11 @@ resource "google_compute_instance" "site" {
   machine_type = "${var.machine_type}"
   zone         = "${var.zone}"
   count        = 1
-  depends_on  = ["google_compute_instance.consul", "google_compute_instance.mysql"]
+  depends_on  = [
+    "google_compute_instance.consul", 
+    "google_compute_instance.mysql",
+    "consul_intention.allow_app_db"
+    ]
 
   tags = ["consul-client", "broadleaf-site"]
 
