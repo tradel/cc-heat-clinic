@@ -20,6 +20,3 @@ mysql -u root -e "create user if not exists broadleaf@'%' identified by 'ech9Wei
 mysql -u root -e "grant all privileges on broadleaf.* to broadleaf@'%'"
 
 mysql -u root -e "flush privileges"
-
-systemctl stop mysql 
-systemctl disable mysql 
