@@ -1,5 +1,5 @@
 {
     "retry_join": [
-        "consul-0"
+        "consul0"
     ]
 }
