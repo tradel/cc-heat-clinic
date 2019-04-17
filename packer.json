@@ -50,6 +50,16 @@
         },
         {
             "type": "shell",
+            "script": "build/java.sh",
+            "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'"
+        },
+        {
+            "type": "shell",
+            "script": "build/solr.sh",
+            "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'"
+        },
+        {
+            "type": "shell",
             "script": "build/broadleaf.sh",
             "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'"
         },
