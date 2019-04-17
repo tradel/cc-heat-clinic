@@ -17,5 +17,8 @@ consul-template -once \
     -vault-renew-token=false \
     -template=${src}:${dest}
 
+systemctl enable solr 
+systemctl start solr
+
 systemctl enable broadleaf-admin
 systemctl start broadleaf-admin
