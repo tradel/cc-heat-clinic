@@ -1,8 +1,8 @@
 [Unit]
 Description=Broadleaf Commerce Server
 Documentation=https://www.broadleafcommerce.com/
-Requires=network-online.target
-After=network-online.target
+Requires=network-online.target solr.service
+After=network-online.target solr.service
 
 [Service]
 User=root

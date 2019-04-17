@@ -1,0 +1,20 @@
+[Unit]
+Description=Apache Solr Index Server
+Documentation=http://lucene.apache.org/solr/
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+Restart=on-failure
+TimeoutStartSec=3m
+TimeoutStopSec=30s
+RestartSec=10s
+WorkingDirectory=/opt/solr
+ExecStart=/opt/solr/bin/solr start -p 8983
+ExecStop=/opt/solr/bin/solr stop -p 8983
+RemainAfterExit=yes
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=multi-user.target
