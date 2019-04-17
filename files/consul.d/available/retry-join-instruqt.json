@@ -1,0 +1,5 @@
+{
+    "retry_join": [
+        "demo-00-consul"
+    ]
+}
